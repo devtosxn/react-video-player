@@ -9,7 +9,7 @@ function App() {
   const {
     playerState,
     togglePlay,
-    handleTimeUpdate,
+    handleOnTimeUpdate,
     handleVideoProgress,
     handleVideoSpeed,
     toggleMute,
@@ -17,7 +17,11 @@ function App() {
   return (
     <div className="container">
       <div className="video-wrapper">
-        <video src={video} ref={videoElement} onTimeUpdate={handleTimeUpdate} />
+        <video
+          src={video}
+          ref={videoElement}
+          onTimeUpdate={handleOnTimeUpdate}
+        />
         <div className="controls">
           <div className="actions">
             <button onClick={togglePlay}>
@@ -45,6 +49,13 @@ function App() {
             <option value="1.25">1.25x</option>
             <option value="2">2x</option>
           </select>
+          <button onClick={toggleMute}>
+            {!playerState.isMuted ? (
+              <i className="bx bxs-volume-full"></i>
+            ) : (
+              <i className="bx bxs-volume-mute"></i>
+            )}
+          </button>
         </div>
       </div>
     </div>
