@@ -28,6 +28,23 @@ function App() {
               )}
             </button>
           </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={playerState.progress}
+            onChange={(e) => handleVideoProgress(e)}
+          />
+          <select
+            className="velocity"
+            value={playerState.speed}
+            onChange={(e) => handleVideoSpeed(e)}
+          >
+            <option value="0.50">0.50x</option>
+            <option value="1">1x</option>
+            <option value="1.25">1.25x</option>
+            <option value="2">2x</option>
+          </select>
         </div>
       </div>
     </div>
