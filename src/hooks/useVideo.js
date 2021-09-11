@@ -45,6 +45,16 @@ const useVideo = (videoElement) => {
       progress: manualChange,
     });
   };
+
+  // Implement the handling of video playback speed
+  const handleVideoSpeed = (e) => {
+    const speed = Number(e.target.value);
+    videoElement.current.playbackRate = speed;
+    setPlayerState({
+      ...playerState,
+      speed,
+    });
+  };
 };
 
 export default useVideo;
