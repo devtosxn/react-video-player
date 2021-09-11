@@ -18,6 +18,17 @@ function App() {
     <div className="container">
       <div className="video-wrapper">
         <video src={video} ref={videoElement} onTimeUpdate={handleTimeUpdate} />
+        <div className="controls">
+          <div className="actions">
+            <button onClick={togglePlay}>
+              {!playerState.isPlaying ? (
+                <i className="bx bx-play"></i>
+              ) : (
+                <i className="bx bx-pause"></i>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
