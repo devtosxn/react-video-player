@@ -55,6 +55,21 @@ const useVideo = (videoElement) => {
       speed,
     });
   };
+
+  // Implement the muting of video playback
+  const toggleVideoMute = () => {
+    setPlayerState({
+      ...playerState,
+      isMuted: !playerState.isMuted,
+    });
+  };
+
+  // Determine where the video is muted or not depending on isPlaying state
+  useEffect(() => {
+    playerState.isMuted
+      ? (videoElement.current.muted = true)
+      : (videoElement.current.muted = false);
+  }, [playerState.isMuted, videoElement]);
 };
 
 export default useVideo;
