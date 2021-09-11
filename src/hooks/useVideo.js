@@ -26,7 +26,7 @@ const useVideo = (videoElement) => {
 
   // Determine the current progress of the video
   // Objective is to show this on the progress bar
-  const handleProgress = () => {
+  const handleOnTimeUpdate = () => {
     const progress =
       (videoElement.current.currentTime / videoElement.current.duration) * 100;
     setPlayerState({
@@ -57,7 +57,7 @@ const useVideo = (videoElement) => {
   };
 
   // Implement the muting of video playback
-  const toggleVideoMute = () => {
+  const toggleMute = () => {
     setPlayerState({
       ...playerState,
       isMuted: !playerState.isMuted,
@@ -70,6 +70,15 @@ const useVideo = (videoElement) => {
       ? (videoElement.current.muted = true)
       : (videoElement.current.muted = false);
   }, [playerState.isMuted, videoElement]);
+
+  return {
+    playerState,
+    togglePlay,
+    handleOnTimeUpdate,
+    handleVideoProgress,
+    handleVideoSpeed,
+    toggleMute,
+  };
 };
 
 export default useVideo;
